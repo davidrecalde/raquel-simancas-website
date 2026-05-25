@@ -1,1 +1,7 @@
-{"ignoredBuilds":["esbuild","sharp","workerd"]}
+module.exports = {
+    hooks: {
+          readPackage(pkg) {
+                  return pkg;
+          }
+    }
+};
