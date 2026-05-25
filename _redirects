@@ -1,0 +1,6 @@
+# Cloudflare Pages redirects — clean URLs (optional, .html links still work)
+/research    /research.html    301
+/publications /publications.html 301
+/talks       /talks.html       301
+/about       /about.html       301
+/contact     /contact.html     301

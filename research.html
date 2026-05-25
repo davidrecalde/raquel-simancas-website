@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Research — Raquel Simancas</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* Page-specific */
+  .ra-row { display: grid; grid-template-columns: 0.9fr 1.4fr; gap: var(--s-9); align-items: start; padding: var(--s-10) 0; border-top: 1px solid var(--line); }
+  .ra-row:last-child { border-bottom: 1px solid var(--line); }
+  .ra-row .vis-col { position: sticky; top: 96px; }
+  .ra-row .vis-col .vis { aspect-ratio: 4/5; color: var(--accent); border: 1px solid var(--line); }
+  .ra-row .vis-col .cap { margin-top: var(--s-3); display:flex; justify-content: space-between; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mineral); }
+  .ra-row .vis-col .cap .acc { color: var(--accent); }
+  .ra-row h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.05; letter-spacing: var(--tr-tight); margin: 0 0 var(--s-5); max-width: 18ch; }
+  .ra-row .lede { font-family: var(--serif); font-size: 1.25rem; line-height: 1.5; color: var(--ink-2); margin: 0 0 var(--s-6); max-width: 56ch; }
+  .ra-row .body { color: var(--ink-2); line-height: 1.7; max-width: 56ch; }
+  .ra-row .body p { margin: 0 0 var(--s-4); }
+  .ra-row .pillars { margin-top: var(--s-6); display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-5) var(--s-6); border-top: 1px solid var(--line); padding-top: var(--s-5); }
+  .ra-row .pillars .lab { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+  .ra-row .pillars .val { font-family: var(--serif); font-style: italic; font-size: 1.05rem; color: var(--ink); }
+  @media (max-width: 880px) {
+    .ra-row { grid-template-columns: 1fr; gap: var(--s-6); }
+    .ra-row .vis-col { position: static; }
+  }
+  /* Methodology grid */
+  .meth-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--s-5); }
+  .meth-card { padding: var(--s-5); border: 1px solid var(--line); aspect-ratio: 3/4; display: flex; flex-direction: column; justify-content: space-between; transition: border-color var(--t-fast) var(--ease), background var(--t-fast) var(--ease); }
+  .meth-card:hover { border-color: var(--accent); background: var(--accent-tint); }
+  .meth-card .acro { font-family: var(--serif); font-size: 2.5rem; color: var(--accent); line-height: 1; }
+  .meth-card .name { font-family: var(--sans); font-weight: 500; font-size: 0.95rem; color: var(--ink); margin-top: var(--s-3); }
+  .meth-card .def { font-size: 0.82rem; color: var(--mineral); margin-top: 4px; line-height: 1.4; }
+  @media (max-width: 880px) { .meth-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body data-screen-label="02 Research">
+
+<header class="site-header">
+  <div class="inner">
+    <a href="index.html" class="wordmark"><span class="name">Raquel</span><span class="dot"></span><span class="surname">Simancas</span></a>
+    <nav class="nav">
+      <a href="research.html" class="active">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="talks.html">Talks</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-meta">東京大学 · The University of Tokyo</div>
+  </div>
+</header>
+
+<main class="page">
+
+  <!-- ========== PAGE HEADER ========== -->
+  <section class="page-head">
+    <div class="wrap-wide">
+      <div class="breadcrumb">
+        <a href="index.html">Index</a><span class="sep">›</span><span>Research</span>
+      </div>
+      <h1>Research <em style="font-family: var(--serif); font-style: italic; color: var(--accent);">programme</em>.</h1>
+      <p class="t-lead lede" style="max-width: 58ch;">
+        Six interlocking lines of work that translate molecular-scale control of porous matter into
+        catalytic processes with industrial relevance and environmental impact.
+      </p>
+      <div class="meta-row">
+        <div class="meta-block">
+          <div class="t-eyebrow">Discipline</div>
+          <div class="t-italic" style="font-size: 1.05rem;">Zeolite Science · Catalysis · Materials</div>
+        </div>
+        <div class="meta-block">
+          <div class="t-eyebrow">Group</div>
+          <div class="t-italic" style="font-size: 1.05rem;">Simancas Lab · Univ. of Tokyo</div>
+        </div>
+        <div class="meta-block">
+          <div class="t-eyebrow">Funded by</div>
+          <div class="t-italic" style="font-size: 1.05rem;">JST · MEXT · Horizon Europe · BASF</div>
+        </div>
+        <div class="meta-block">
+          <div class="t-eyebrow">Lines of work</div>
+          <div class="t-italic" style="font-size: 1.05rem;">06 areas · 17 active projects</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== INTRO ========== -->
+  <section style="padding: var(--s-9) 0;">
+    <div class="wrap-wide">
+      <div style="display:grid; grid-template-columns: 0.9fr 1.4fr; gap: var(--s-9); align-items: start;">
+        <div>
+          <div class="t-eyebrow"><span class="num">00</span>Approach</div>
+        </div>
+        <div>
+          <p class="t-display" style="font-size: clamp(2rem, 4vw, 3.75rem); line-height: 1.05; margin: 0 0 var(--s-7); max-width: 24ch;">
+            Designing matter at the <em style="font-style: italic; color: var(--accent);">angstrom scale</em> to address industrial chemistry's hardest&nbsp;questions.
+          </p>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap: var(--s-6);">
+            <p class="t-body" style="margin:0;">
+              Our work bridges fundamental zeolite chemistry — synthesis, structural understanding,
+              active-site engineering — with applied catalysis for CO<sub>2</sub> conversion,
+              methane upgrading, biomass valorization and environmental remediation.
+            </p>
+            <p class="t-body" style="margin:0;">
+              We combine controlled crystallization, high-pressure synthesis routes, and advanced
+              <em>in&nbsp;situ</em> characterization. Each project is built around close ties to
+              industrial partners, so discoveries can move toward scale.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RESEARCH AREAS ========== -->
+  <section style="padding: var(--s-7) 0 var(--s-10);">
+    <div class="wrap-wide">
+
+      <!-- RA 01 -->
+      <article id="zeolite-synthesis" class="ra-row">
+        <div class="vis-col">
+          <div class="vis" data-vis="fau"></div>
+          <div class="cap"><span class="acc">RA / 01</span><span>FAU-type cage</span></div>
+        </div>
+        <div>
+          <div class="t-eyebrow" style="margin-bottom: var(--s-3);"><span class="num">01</span>Zeolite design &amp; synthesis</div>
+          <h3>Crystallization, control &amp; new&nbsp;topologies.</h3>
+          <p class="lede">
+            How can we direct the formation of a microporous framework, atom by atom?
+            We develop synthesis methodologies — including hydrostatic-pressure routes — to
+            access zeolites whose pore geometry is tuned for the chemistry we need.
+          </p>
+          <div class="body">
+            <p>
+              The group designs and tests organic structure-directing agents (OSDAs), engineers
+              crystallization kinetics, and uses high-pressure conditions to stabilize otherwise
+              inaccessible frameworks. This unlocks <em>topology-by-design</em> — pores tailored
+              for a target molecule or reaction transition state.
+            </p>
+          </div>
+          <div class="pillars">
+            <div><div class="lab">Methodologies</div><div class="val">Hydrothermal · Pressure · ADOR</div></div>
+            <div><div class="lab">Probes</div><div class="val">Tailored OSDAs · Mineralizers</div></div>
+            <div><div class="lab">Output</div><div class="val">New framework topologies</div></div>
+            <div><div class="lab">Partner</div><div class="val">ITQ · Valencia</div></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- RA 02 -->
+      <article id="sustainable-catalysis" class="ra-row">
+        <div class="vis-col">
+          <div class="vis" data-vis="mfi"></div>
+          <div class="cap"><span class="acc">RA / 02</span><span>MFI channel system</span></div>
+        </div>
+        <div>
+          <div class="t-eyebrow" style="margin-bottom: var(--s-3);"><span class="num">02</span>Catalysis &amp; reaction engineering</div>
+          <h3>Active sites, confinement, performance.</h3>
+          <p class="lede">
+            From methanol synthesis to selective hydrogenation and NO<sub>x</sub> abatement —
+            we tune Brønsted and Lewis sites inside microporous channels to deliver more
+            selective, more efficient, and more durable catalytic processes.
+          </p>
+          <div class="body">
+            <p>
+              Confinement inside angstrom-scale pores can reshape the energy landscape of a
+              reaction — favoring desired intermediates and suppressing side reactions. We
+              quantify these effects, then translate them into engineered catalysts whose
+              performance matches industrial demands.
+            </p>
+          </div>
+          <div class="pillars">
+            <div><div class="lab">Reactions</div><div class="val">CH₃OH · hydrogenation · NO<sub>x</sub></div></div>
+            <div><div class="lab">Tooling</div><div class="val">Fixed-bed reactors · operando IR</div></div>
+            <div><div class="lab">Output</div><div class="val">Selectivity / lifetime models</div></div>
+            <div><div class="lab">Partner</div><div class="val">BASF · Repsol Tech Lab</div></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- RA 03 -->
+      <article id="co2-valorization" class="ra-row">
+        <div class="vis-col">
+          <div class="vis" data-vis="porosity"></div>
+          <div class="cap"><span class="acc">RA / 03</span><span>Porosity field</span></div>
+        </div>
+        <div>
+          <div class="t-eyebrow" style="margin-bottom: var(--s-3);"><span class="num">03</span>CO<sub>2</sub> valorization</div>
+          <h3>Closing the <em style="font-style: italic; color: var(--accent);">carbon&nbsp;loop</em>.</h3>
+          <p class="lede">
+            Turning CO<sub>2</sub> from a waste product into a feedstock for chemicals and fuels —
+            on materials engineered for selectivity, stability and scale.
+          </p>
+          <div class="body">
+            <p>
+              We develop zeolite-supported and bifunctional catalysts for CO<sub>2</sub>
+              hydrogenation to methanol, olefins and aromatics. The goal is sustainable
+              processes that integrate with renewable hydrogen and captured CO<sub>2</sub>
+              streams — making carbon-neutral chemistry economically viable.
+            </p>
+          </div>
+          <div class="pillars">
+            <div><div class="lab">Targets</div><div class="val">Methanol · olefins · aromatics</div></div>
+            <div><div class="lab">Inputs</div><div class="val">Captured CO₂ · green H₂</div></div>
+            <div><div class="lab">Output</div><div class="val">Industrial-relevant catalysts</div></div>
+            <div><div class="lab">Partner</div><div class="val">Saudi Aramco · JGC</div></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- RA 04 -->
+      <article id="environmental" class="ra-row">
+        <div class="vis-col">
+          <div class="vis" data-vis="cha"></div>
+          <div class="cap"><span class="acc">RA / 04</span><span>CHA layered structure</span></div>
+        </div>
+        <div>
+          <div class="t-eyebrow" style="margin-bottom: var(--s-3);"><span class="num">04</span>Environmental applications</div>
+          <h3>Clean water, clean air, sustainable materials.</h3>
+          <p class="lede">
+            Wastewater treatment, ammonium removal and adsorption-based separations —
+            zeolites engineered for environmental remediation at municipal and industrial scale.
+          </p>
+          <div class="body">
+            <p>
+              Beyond catalysis, microporous materials are uniquely suited to selective ion exchange
+              and gas separation. We develop chabazite-type and natural-resource-derived zeolites
+              for ammonium removal from wastewater, heavy-metal capture and SO<sub>x</sub>/NO<sub>x</sub>
+              abatement — with cost-aware syntheses that scale.
+            </p>
+          </div>
+          <div class="pillars">
+            <div><div class="lab">Targets</div><div class="val">NH₄⁺ · heavy metals · SO<sub>x</sub></div></div>
+            <div><div class="lab">Routes</div><div class="val">Natural feedstocks · ion exchange</div></div>
+            <div><div class="lab">Output</div><div class="val">Field-deployable materials</div></div>
+            <div><div class="lab">Partner</div><div class="val">JST · CREST</div></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- RA 05 -->
+      <article id="methane-biomass" class="ra-row">
+        <div class="vis-col">
+          <div class="vis" data-vis="mor"></div>
+          <div class="cap"><span class="acc">RA / 05</span><span>MOR ladder structure</span></div>
+        </div>
+        <div>
+          <div class="t-eyebrow" style="margin-bottom: var(--s-3);"><span class="num">05</span>Methane &amp; biomass upgrading</div>
+          <h3>From low-value feedstocks to <em style="font-style: italic; color: var(--accent);">high-value molecules</em>.</h3>
+          <p class="lede">
+            Direct conversion of methane and biomass-derived intermediates into platform chemicals
+            and fuels — bypassing energy-intensive intermediates.
+          </p>
+          <div class="body">
+            <p>
+              Methane-to-methanol, alkane dehydroaromatization, and oxygenate upgrading
+              require active sites that can activate strong C–H bonds without runaway
+              over-oxidation. Our work focuses on stabilizing the right metal centers
+              inside the right pore — and on understanding deactivation pathways
+              so industrial lifetimes become achievable.
+            </p>
+          </div>
+          <div class="pillars">
+            <div><div class="lab">Targets</div><div class="val">CH₄ → CH₃OH · alkane DHA</div></div>
+            <div><div class="lab">Sites</div><div class="val">Cu · Fe · Mo confined ions</div></div>
+            <div><div class="lab">Output</div><div class="val">Stable single-step routes</div></div>
+            <div><div class="lab">Partner</div><div class="val">Horizon Europe consortium</div></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- RA 06 -->
+      <article id="porous-materials" class="ra-row">
+        <div class="vis-col">
+          <div class="vis" data-vis="lta"></div>
+          <div class="cap"><span class="acc">RA / 06</span><span>LTA cubic cages</span></div>
+        </div>
+        <div>
+          <div class="t-eyebrow" style="margin-bottom: var(--s-3);"><span class="num">06</span>Advanced porous materials</div>
+          <h3>Deep-tech frameworks for the next decade.</h3>
+          <p class="lede">
+            Beyond classical zeolites — hybrid frameworks, hierarchical porosity, and chiral
+            materials that bring new functionalities to catalysis, separation and storage.
+          </p>
+          <div class="body">
+            <p>
+              We explore the frontier of porous-material design: chiral zeolites for asymmetric
+              catalysis, hybrid organic–inorganic frameworks, and hierarchical structures that
+              integrate micro-, meso- and macropores in a single architecture. The aim is to
+              equip industrial chemistry with new tools — not just incremental optimization.
+            </p>
+          </div>
+          <div class="pillars">
+            <div><div class="lab">Frontiers</div><div class="val">Chiral · hybrid · hierarchical</div></div>
+            <div><div class="lab">Probes</div><div class="val">DFT · synchrotron · electron diff.</div></div>
+            <div><div class="lab">Output</div><div class="val">Open IP &amp; licensable patents</div></div>
+            <div><div class="lab">Partner</div><div class="val">Oxford · TU Delft · Berkeley</div></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ========== METHODOLOGY ========== -->
+  <section style="background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+    <div class="wrap-wide">
+      <div style="display:grid; grid-template-columns: 0.9fr 1.4fr; gap: var(--s-9); align-items: end; margin-bottom: var(--s-8);">
+        <div>
+          <div class="t-eyebrow" style="margin-bottom: var(--s-4);"><span class="num">07</span>Methodology</div>
+          <h2 class="t-h1" style="margin: 0;">Tools of the&nbsp;trade.</h2>
+        </div>
+        <p class="t-lead" style="margin: 0; max-width: 52ch;">
+          Every project is built on a layered characterization stack — from atomic-scale imaging
+          to operando spectroscopy — so structure, dynamics and performance are studied as one.
+        </p>
+      </div>
+
+      <div class="meth-grid">
+        <div class="meth-card">
+          <div class="acro">SEM</div>
+          <div>
+            <div class="name">Scanning electron microscopy</div>
+            <div class="def">Crystal morphology, particle size, intergrowths.</div>
+          </div>
+        </div>
+        <div class="meth-card">
+          <div class="acro">TEM</div>
+          <div>
+            <div class="name">Transmission electron microscopy</div>
+            <div class="def">Pore architecture, defects, framework topology.</div>
+          </div>
+        </div>
+        <div class="meth-card">
+          <div class="acro">XRD</div>
+          <div>
+            <div class="name">X-ray diffraction</div>
+            <div class="def">Phase identification, framework refinement.</div>
+          </div>
+        </div>
+        <div class="meth-card">
+          <div class="acro">NMR</div>
+          <div>
+            <div class="name">Solid-state nuclear magnetic resonance</div>
+            <div class="def">Local environment of Si, Al, P; OSDA confinement.</div>
+          </div>
+        </div>
+        <div class="meth-card">
+          <div class="acro">RAM</div>
+          <div>
+            <div class="name">Raman spectroscopy</div>
+            <div class="def">Framework vibrations, in-situ reaction monitoring.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section style="padding: var(--s-10) 0;">
+    <div class="wrap-wide">
+      <div style="display:grid; grid-template-columns: 1.4fr 1fr; gap: var(--s-7); align-items: center;">
+        <h2 class="t-display" style="font-size: clamp(2.25rem, 4.5vw, 4.25rem); margin: 0; max-width: 18ch;">
+          See how this work is published, and where it has been&nbsp;<em style="font-style: italic; color: var(--accent);">presented</em>.
+        </h2>
+        <div style="display:flex; gap: 14px; flex-wrap: wrap; justify-self: end;">
+          <a class="btn" href="publications.html">Publications <span class="arrow">→</span></a>
+          <a class="btn ghost" href="talks.html">Talks</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap-wide">
+    <div class="grid">
+      <div>
+        <div class="signature">Raquel Simancas<br/><em style="color: var(--accent);">Zeolite&nbsp;Science</em></div>
+        <p class="t-small" style="max-width: 32ch;">Assistant Professor at The University of Tokyo. Advancing zeolite science for sustainable industrial transformation.</p>
+      </div>
+      <div>
+        <h6>Navigation</h6>
+        <ul>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="talks.html">Talks</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6>Profiles</h6>
+        <ul>
+          <li><a href="#">ORCID 0000-0002-XXXX-XXXX</a></li>
+          <li><a href="#">Google Scholar</a></li>
+          <li><a href="#">ResearcherID</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6>Affiliation</h6>
+        <ul>
+          <li>The University of Tokyo</li>
+          <li>Department of Chemical&nbsp;System Engineering</li>
+          <li>7-3-1 Hongo, Bunkyo-ku</li>
+          <li>Tokyo 113-8656, Japan</li>
+        </ul>
+      </div>
+    </div>
+    <div class="colophon">
+      <span>© 2026 Raquel Simancas · All rights reserved</span>
+      <span>東京 → Worldwide</span>
+    </div>
+  </div>
+</footer>
+
+<script src="image-slot.js"></script>
+<script src="vis.js"></script>
+<script src="tweaks.js"></script>
+</body>
+</html>

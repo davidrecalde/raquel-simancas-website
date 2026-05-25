@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact — Raquel Simancas</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .contact-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--s-9); align-items: start; }
+  @media (max-width: 880px) { .contact-grid { grid-template-columns: 1fr; } }
+
+  .channel { padding: var(--s-6) 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 200px 1fr 120px; gap: var(--s-5); align-items: baseline; }
+  .channel:first-child { padding-top: 0; }
+  .channel .lab { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mineral); }
+  .channel .value { font-family: var(--serif); font-size: 1.5rem; color: var(--ink); }
+  .channel .value a { border-bottom: 1px solid var(--line-2); padding-bottom: 2px; transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease); }
+  .channel .value a:hover { color: var(--accent); border-color: var(--accent); }
+  .channel .note { font-family: var(--sans); font-size: 0.85rem; color: var(--mineral); text-align: right; }
+
+  .form-card { background: var(--paper-2); border: 1px solid var(--line); padding: var(--s-7); }
+  .form-card h3 { font-family: var(--serif); font-weight: 400; font-size: 1.75rem; margin: 0 0 var(--s-3); }
+  .form-card p.sub { color: var(--mineral); font-size: 0.95rem; margin: 0 0 var(--s-6); }
+  .field { display: grid; gap: 6px; margin-bottom: var(--s-5); }
+  .field label { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mineral); }
+  .field input, .field select, .field textarea {
+    font-family: var(--sans); font-size: 0.95rem; color: var(--ink);
+    background: var(--paper); border: 1px solid var(--line); border-radius: 0;
+    padding: 12px 14px; transition: border-color var(--t-fast) var(--ease);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--accent); }
+  .field textarea { min-height: 120px; font-family: var(--serif); font-size: 1rem; resize: vertical; }
+  .topic-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .topic-row .chip { font-family: var(--sans); font-size: 0.82rem; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-2); cursor: pointer; transition: all var(--t-fast) var(--ease); background: var(--paper); }
+  .topic-row .chip.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .topic-row .chip:hover:not(.on) { border-color: var(--accent); color: var(--accent); }
+
+  .ok { display: none; padding: var(--s-5); background: var(--accent-tint); border: 1px solid var(--accent); margin-top: var(--s-4); }
+  .ok.show { display: block; }
+  .ok h4 { font-family: var(--serif); margin: 0 0 6px; color: var(--accent-deep); }
+  .ok p { margin: 0; font-size: 0.95rem; color: var(--ink-2); }
+</style>
+</head>
+<body data-screen-label="06 Contact">
+
+<header class="site-header">
+  <div class="inner">
+    <a href="index.html" class="wordmark"><span class="name">Raquel</span><span class="dot"></span><span class="surname">Simancas</span></a>
+    <nav class="nav">
+      <a href="research.html">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="talks.html">Talks</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+    <div class="nav-meta">東京大学 · The University of Tokyo</div>
+  </div>
+</header>
+
+<main class="page">
+
+  <section class="page-head">
+    <div class="wrap-wide">
+      <div class="breadcrumb"><a href="index.html">Index</a><span class="sep">›</span><span>Contact</span></div>
+      <h1>Get in <em style="font-family: var(--serif); font-style: italic; color: var(--accent);">touch</em>.</h1>
+      <p class="t-lead lede" style="max-width: 60ch;">
+        For research collaborations, industrial partnerships, speaking enquiries, editorial requests,
+        PhD &amp; postdoc opportunities — or anything else worth a longer conversation.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== CHANNELS + FORM ========== -->
+  <section style="padding: var(--s-10) 0;">
+    <div class="wrap-wide">
+      <div class="contact-grid">
+
+        <!-- Channels -->
+        <div>
+          <div class="t-eyebrow" style="margin-bottom: var(--s-5);"><span class="num">01</span>Direct channels</div>
+
+          <div class="channel">
+            <span class="lab">Email · institutional</span>
+            <span class="value"><a href="mailto:simancas@chemsys.t.u-tokyo.ac.jp">simancas@chemsys.t.u-tokyo.ac.jp</a></span>
+            <span class="note">Replies within 3 working days</span>
+          </div>
+
+          <div class="channel">
+            <span class="lab">Speaking enquiries</span>
+            <span class="value"><a href="mailto:talks@simancaslab.com">talks@simancaslab.com</a></span>
+            <span class="note">Keynotes &amp; industrial briefings</span>
+          </div>
+
+          <div class="channel">
+            <span class="lab">Collaborations</span>
+            <span class="value"><a href="mailto:collab@simancaslab.com">collab@simancaslab.com</a></span>
+            <span class="note">Industrial &amp; academic</span>
+          </div>
+
+          <div class="channel">
+            <span class="lab">ORCID</span>
+            <span class="value"><a href="#">0000-0002-XXXX-XXXX</a></span>
+            <span class="note">Indexed bibliography</span>
+          </div>
+
+          <div class="channel">
+            <span class="lab">LinkedIn</span>
+            <span class="value"><a href="#">/in/raquelsimancas</a></span>
+            <span class="note">Professional network</span>
+          </div>
+
+          <div class="channel" style="border-bottom: 0;">
+            <span class="lab">Google Scholar</span>
+            <span class="value"><a href="#">Author profile</a></span>
+            <span class="note">3,400+ citations</span>
+          </div>
+
+          <!-- Address card -->
+          <div style="margin-top: var(--s-7); padding: var(--s-6); border: 1px solid var(--line);">
+            <div class="t-eyebrow" style="margin-bottom: var(--s-4);"><span class="num">02</span>Postal address</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-5);">
+              <div>
+                <div class="t-italic" style="font-size: 1.2rem; color: var(--ink); margin-bottom: 8px;">The University of Tokyo</div>
+                <div class="t-body" style="font-size: 0.95rem;">
+                  Department of Chemical System Engineering<br/>
+                  Faculty of Engineering · Building 5<br/>
+                  7-3-1 Hongo, Bunkyo-ku<br/>
+                  Tokyo 113-8656, Japan
+                </div>
+              </div>
+              <div>
+                <div class="t-eyebrow" style="color: var(--accent); margin-bottom: 8px;">Lab visits</div>
+                <p class="t-body" style="font-size: 0.95rem; margin: 0 0 12px;">
+                  Welcome by appointment only. Please email at least two weeks in advance.
+                </p>
+                <div class="t-eyebrow" style="color: var(--accent); margin-bottom: 8px; margin-top: var(--s-3);">Nearest</div>
+                <p class="t-body" style="font-size: 0.95rem; margin: 0;">Hongo-sanchōme Station · 都営大江戸線 / Marunouchi Line</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div>
+          <div class="form-card">
+            <div class="t-eyebrow" style="margin-bottom: var(--s-5);"><span class="num">03</span>Or write a message</div>
+            <h3>Send a brief note.</h3>
+            <p class="sub">Concise messages are most likely to receive a thoughtful reply.</p>
+
+            <form id="msgform">
+              <div class="field">
+                <label>Topic</label>
+                <div class="topic-row" id="topics">
+                  <button type="button" class="chip on" data-topic="collab">Collaboration</button>
+                  <button type="button" class="chip" data-topic="speaking">Speaking</button>
+                  <button type="button" class="chip" data-topic="industry">Industry partnership</button>
+                  <button type="button" class="chip" data-topic="phd">PhD / Postdoc</button>
+                  <button type="button" class="chip" data-topic="press">Press / Editorial</button>
+                  <button type="button" class="chip" data-topic="other">Other</button>
+                </div>
+              </div>
+
+              <div class="field">
+                <label>Name &amp; affiliation</label>
+                <input type="text" name="name" placeholder="Dr. Jane Doe · Institution / Company" required />
+              </div>
+
+              <div class="field">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="name@institution.org" required />
+              </div>
+
+              <div class="field">
+                <label>Message</label>
+                <textarea name="msg" placeholder="A few sentences about your enquiry." required></textarea>
+              </div>
+
+              <div style="display:flex; justify-content: space-between; align-items: center; gap: var(--s-5); flex-wrap: wrap; margin-top: var(--s-3);">
+                <span class="t-small" style="color: var(--mineral);">No tracking. No newsletter. Replies in ~3 days.</span>
+                <button type="submit" class="btn">Send enquiry <span class="arrow">→</span></button>
+              </div>
+            </form>
+
+            <div class="ok" id="ok">
+              <h4>Thank you — message received.</h4>
+              <p>I'll reply personally within three working days. For urgent industrial enquiries, please email <a href="mailto:collab@simancaslab.com">collab@simancaslab.com</a> directly.</p>
+            </div>
+          </div>
+
+          <!-- Faq mini -->
+          <div style="margin-top: var(--s-6); padding-top: var(--s-5); border-top: 1px solid var(--line);">
+            <div class="t-eyebrow" style="margin-bottom: var(--s-4);"><span class="num">04</span>Quick answers</div>
+            <details style="border-bottom: 1px solid var(--line); padding: var(--s-4) 0;">
+              <summary style="font-family: var(--serif); font-size: 1.15rem; cursor: pointer; color: var(--ink);">Are you taking new PhD students?</summary>
+              <p class="t-body" style="margin: 12px 0 0;">Selectively, yes — particularly for projects in CO<sub>2</sub> valorization and methane upgrading. Please send a CV, a 1-page research statement, and indicate funding interests.</p>
+            </details>
+            <details style="border-bottom: 1px solid var(--line); padding: var(--s-4) 0;">
+              <summary style="font-family: var(--serif); font-size: 1.15rem; cursor: pointer; color: var(--ink);">Do you accept industrial collaborations?</summary>
+              <p class="t-body" style="margin: 12px 0 0;">Yes. Formal sponsored research, joint development, technical advisory and licensing of group IP are all viable. Reach out via the Collaborations channel.</p>
+            </details>
+            <details style="padding: var(--s-4) 0;">
+              <summary style="font-family: var(--serif); font-size: 1.15rem; cursor: pointer; color: var(--ink);">Can you give a keynote?</summary>
+              <p class="t-body" style="margin: 12px 0 0;">Schedule permitting — yes. Please share venue, audience, date and intended scope. Topics: zeolite science, sustainable catalysis, CO<sub>2</sub> chemistry, women in materials science.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing block -->
+  <section style="padding: var(--s-10) 0; border-top: 1px solid var(--line); background: var(--paper-2);">
+    <div class="wrap-wide" style="text-align: center;">
+      <p class="t-display" style="font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.1; margin: 0 auto; max-width: 30ch;">
+        “Good chemistry is built one <em style="color: var(--accent); font-style: italic;">conversation</em> at a time.”
+      </p>
+      <p class="t-small" style="margin-top: var(--s-5); color: var(--mineral);">— Raquel Simancas, Tokyo 2025</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap-wide">
+    <div class="grid">
+      <div>
+        <div class="signature">Raquel Simancas<br/><em style="color: var(--accent);">Zeolite&nbsp;Science</em></div>
+        <p class="t-small" style="max-width: 32ch;">Assistant Professor at The University of Tokyo. Advancing zeolite science for sustainable industrial transformation.</p>
+      </div>
+      <div><h6>Navigation</h6><ul>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="talks.html">Talks</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div><h6>Profiles</h6><ul>
+        <li><a href="#">ORCID 0000-0002-XXXX-XXXX</a></li>
+        <li><a href="#">Google Scholar</a></li>
+        <li><a href="#">ResearcherID</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul></div>
+      <div><h6>Affiliation</h6><ul>
+        <li>The University of Tokyo</li>
+        <li>Department of Chemical&nbsp;System Engineering</li>
+        <li>7-3-1 Hongo, Bunkyo-ku</li>
+        <li>Tokyo 113-8656, Japan</li>
+      </ul></div>
+    </div>
+    <div class="colophon"><span>© 2026 Raquel Simancas · All rights reserved</span><span>東京 → Worldwide</span></div>
+  </div>
+</footer>
+
+<script src="image-slot.js"></script>
+<script src="vis.js"></script>
+<script src="tweaks.js"></script>
+<script>
+  // Topic chips + fake submit
+  document.getElementById('topics').addEventListener('click', e => {
+    const c = e.target.closest('.chip');
+    if (!c) return;
+    document.querySelectorAll('#topics .chip').forEach(b => b.classList.toggle('on', b === c));
+  });
+  document.getElementById('msgform').addEventListener('submit', e => {
+    e.preventDefault();
+    document.getElementById('ok').classList.add('show');
+    e.target.style.display = 'none';
+  });
+</script>
+</body>
+</html>

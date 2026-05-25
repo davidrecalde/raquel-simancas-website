@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Publications — Raquel Simancas</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* Featured papers */
+  .ft-paper {
+    display: grid;
+    grid-template-columns: 0.7fr 1.3fr;
+    gap: var(--s-7);
+    align-items: start;
+    padding: var(--s-9) 0;
+    border-top: 1px solid var(--line);
+  }
+  .ft-paper:last-of-type { border-bottom: 1px solid var(--line); }
+  .ft-paper .v { aspect-ratio: 4/5; color: var(--accent); border: 1px solid var(--line); position: sticky; top: 96px; }
+  .ft-paper .body h3 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(1.75rem, 3.2vw, 2.75rem); line-height: 1.1; letter-spacing: var(--tr-tight);
+    margin: 0 0 var(--s-5); max-width: 28ch;
+  }
+  .ft-paper .body .abs { font-family: var(--serif); font-size: 1.15rem; line-height: 1.55; color: var(--ink-2); max-width: 56ch; margin: 0 0 var(--s-5); }
+  .ft-paper .head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--s-4); flex-wrap: wrap; gap: 10px; }
+  .ft-paper .journal { font-family: var(--serif); font-style: italic; font-size: 1.15rem; color: var(--ink); }
+  .ft-paper .doi { font-family: var(--mono); font-size: 0.78rem; color: var(--mineral); letter-spacing: 0.04em; }
+  .ft-paper .stats { display: grid; grid-template-columns: repeat(4, auto); gap: var(--s-6); border-top: 1px solid var(--line); padding-top: var(--s-4); margin-top: var(--s-4); }
+  .ft-paper .stats .num { font-family: var(--serif); font-size: 1.5rem; color: var(--accent); display:block; }
+  .ft-paper .stats .lab { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mineral); margin-top: 4px; }
+  @media (max-width: 880px) {
+    .ft-paper { grid-template-columns: 1fr; }
+    .ft-paper .v { position: static; aspect-ratio: 16/10; }
+  }
+
+  /* Filters */
+  .filters { display: flex; gap: var(--s-7); flex-wrap: wrap; padding: var(--s-5) 0; border-bottom: 1px solid var(--line); position: sticky; top: 72px; background: color-mix(in srgb, var(--paper) 95%, transparent); backdrop-filter: blur(8px); z-index: 10; }
+  .filter-group { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .filter-group .lab { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mineral); margin-right: 4px; }
+  .chip {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    padding: 6px 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--ink-2);
+    cursor: pointer;
+    transition: all var(--t-fast) var(--ease);
+    background: transparent;
+    white-space: nowrap;
+  }
+  .chip:hover { border-color: var(--accent); color: var(--accent); }
+  .chip.on { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  .chip.on:hover { background: var(--accent); border-color: var(--accent); color: var(--paper); }
+
+  /* Full list */
+  .full-list { list-style: none; padding: 0; margin: 0; }
+  .full-list > li {
+    display: grid;
+    grid-template-columns: 70px 1fr 1.6fr 110px 100px;
+    gap: var(--s-5);
+    padding: var(--s-5) 0;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+    transition: background var(--t-fast) var(--ease);
+  }
+  .full-list > li:hover { background: var(--paper-2); }
+  .full-list .y { font-family: var(--mono); color: var(--accent); font-size: 0.85rem; }
+  .full-list .j { font-family: var(--serif); font-style: italic; color: var(--ink); font-size: 1.0rem; }
+  .full-list .vol { display: block; font-family: var(--mono); font-size: 0.72rem; color: var(--mineral); margin-top: 2px; letter-spacing: 0.04em; }
+  .full-list .t { font-family: var(--serif); color: var(--ink-2); font-size: 1.05rem; line-height: 1.35; }
+  .full-list .topic { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mineral); }
+  .full-list .doi { font-family: var(--mono); font-size: 0.72rem; color: var(--mineral); justify-self: end; }
+  .full-list .doi:hover { color: var(--accent); }
+  .full-list li.hidden { display: none; }
+
+  @media (max-width: 960px) {
+    .full-list > li { grid-template-columns: 60px 1fr; row-gap: 6px; }
+    .full-list .j, .full-list .topic, .full-list .doi { grid-column: 2; }
+    .full-list .t { grid-column: 2; }
+  }
+
+  /* Metrics */
+  .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s-6); border-top: 1px solid var(--line); padding-top: var(--s-6); }
+  .metrics-grid .m .n { font-family: var(--serif); font-size: 4rem; color: var(--accent); line-height: 0.95; }
+  .metrics-grid .m .l { font-family: var(--sans); font-weight: 500; font-size: 0.95rem; color: var(--ink); margin-top: 8px; }
+  .metrics-grid .m .s { font-family: var(--mono); font-size: 0.72rem; color: var(--mineral); margin-top: 4px; letter-spacing: 0.04em; text-transform: uppercase; }
+</style>
+</head>
+<body data-screen-label="03 Publications">
+
+<header class="site-header">
+  <div class="inner">
+    <a href="index.html" class="wordmark"><span class="name">Raquel</span><span class="dot"></span><span class="surname">Simancas</span></a>
+    <nav class="nav">
+      <a href="research.html">Research</a>
+      <a href="publications.html" class="active">Publications</a>
+      <a href="talks.html">Talks</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-meta">東京大学 · The University of Tokyo</div>
+  </div>
+</header>
+
+<main class="page">
+
+  <!-- ========== PAGE HEADER ========== -->
+  <section class="page-head">
+    <div class="wrap-wide">
+      <div class="breadcrumb">
+        <a href="index.html">Index</a><span class="sep">›</span><span>Publications</span>
+      </div>
+      <h1>Selected <em style="font-family: var(--serif); font-style: italic; color: var(--accent);">writings</em>.</h1>
+      <p class="t-lead lede">
+        A curated selection of peer-reviewed work in catalysis, zeolite chemistry and porous-material design —
+        from <em>Nature&nbsp;Catalysis</em> to <em>JACS</em> and beyond.
+      </p>
+      <div class="meta-row">
+        <div class="meta-block">
+          <div class="t-eyebrow">Featured</div>
+          <div class="t-italic" style="font-size: 1.05rem;">04 flagship papers</div>
+        </div>
+        <div class="meta-block">
+          <div class="t-eyebrow">Indexed</div>
+          <div class="t-italic" style="font-size: 1.05rem;">68+ entries · ORCID linked</div>
+        </div>
+        <div class="meta-block">
+          <div class="t-eyebrow">Citations</div>
+          <div class="t-italic" style="font-size: 1.05rem;">3,400+ · h-index 28</div>
+        </div>
+        <div class="meta-block">
+          <div class="t-eyebrow">Patents</div>
+          <div class="t-italic" style="font-size: 1.05rem;">04 granted · 02 pending</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FEATURED PAPERS ========== -->
+  <section style="padding: var(--s-9) 0;">
+    <div class="wrap-wide">
+
+      <div style="display: flex; justify-content: space-between; align-items: end; margin-bottom: var(--s-7); flex-wrap: wrap; gap: var(--s-4);">
+        <div>
+          <div class="t-eyebrow" style="margin-bottom: var(--s-3);"><span class="num">01</span>Featured papers</div>
+          <h2 class="t-h2" style="margin: 0; max-width: 18ch;">Four works that shaped the&nbsp;programme.</h2>
+        </div>
+        <span class="t-italic" style="font-size: 1.05rem; color: var(--mineral);">2023 — 2025</span>
+      </div>
+
+      <!-- Featured 01 -->
+      <article class="ft-paper">
+        <div class="v" data-vis="mfi"></div>
+        <div class="body">
+          <div class="head">
+            <span class="tag accent">Nature Catalysis · 2025</span>
+            <span class="doi">DOI 10.1038/s41929-025-01421-8</span>
+          </div>
+          <h3>Hydrostatic-pressure synthesis of small-pore zeolites for selective CO<sub>2</sub> reduction.</h3>
+          <p class="journal">
+            <em>Simancas R., Kojima M., Yamada T. et al.</em> · <span class="t-italic">Nature&nbsp;Catalysis</span> vol.&nbsp;8, 320–331.
+          </p>
+          <p class="abs">
+            We report a high-pressure synthesis route that stabilizes a new small-pore zeolite topology with
+            unprecedented selectivity for CO<sub>2</sub> hydrogenation to methanol — opening a path toward
+            industrial carbon-neutral chemistry on engineered porous catalysts.
+          </p>
+          <div class="stats">
+            <div><span class="num">124</span><span class="lab">Citations</span></div>
+            <div><span class="num">F1000</span><span class="lab">Highlighted</span></div>
+            <div><span class="num">3</span><span class="lab">Patents filed</span></div>
+            <div><span class="num">EN/JP/ES</span><span class="lab">Press coverage</span></div>
+          </div>
+          <div style="margin-top: var(--s-5); display: flex; gap: 12px; flex-wrap: wrap;">
+            <a class="link" href="#">Read paper <span class="arrow">→</span></a>
+            <a class="link" href="#">PDF</a>
+            <a class="link" href="#">Supplementary</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Featured 02 -->
+      <article class="ft-paper">
+        <div class="v" data-vis="lta"></div>
+        <div class="body">
+          <div class="head">
+            <span class="tag accent">Science · 2024</span>
+            <span class="doi">DOI 10.1126/science.adn8842</span>
+          </div>
+          <h3>Directing aluminum distribution in MFI zeolites for direct methane-to-methanol conversion.</h3>
+          <p class="journal">
+            <em>Simancas R., García-Ruiz A., Tanaka H. et al.</em> · <span class="t-italic">Science</span> vol.&nbsp;384, 1015–1020.
+          </p>
+          <p class="abs">
+            Synthetic control of where aluminum sits inside the MFI framework — and therefore where the
+            active copper sites form — enables a direct CH<sub>4</sub>→CH<sub>3</sub>OH route operating at
+            milder conditions than any previously reported system.
+          </p>
+          <div class="stats">
+            <div><span class="num">218</span><span class="lab">Citations</span></div>
+            <div><span class="num">Top 1%</span><span class="lab">Field-weighted</span></div>
+            <div><span class="num">2</span><span class="lab">Patents granted</span></div>
+            <div><span class="num">Editor's</span><span class="lab">Pick</span></div>
+          </div>
+          <div style="margin-top: var(--s-5); display: flex; gap: 12px; flex-wrap: wrap;">
+            <a class="link" href="#">Read paper <span class="arrow">→</span></a>
+            <a class="link" href="#">PDF</a>
+            <a class="link" href="#">Supplementary</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Featured 03 -->
+      <article class="ft-paper">
+        <div class="v" data-vis="dual"></div>
+        <div class="body">
+          <div class="head">
+            <span class="tag accent">J. Am. Chem. Soc. · 2024</span>
+            <span class="doi">DOI 10.1021/jacs.4c00382</span>
+          </div>
+          <h3>A new chiral porous framework via tailored organic structure-directing agents.</h3>
+          <p class="journal">
+            <em>Simancas R., Yokoi T., Corma A. et al.</em> · <span class="t-italic">JACS</span> vol.&nbsp;146, 18 224–18 235.
+          </p>
+          <p class="abs">
+            We demonstrate that bespoke chiral OSDAs imprint their handedness onto the resulting zeolite
+            framework — yielding a chiral microporous material with measurable enantioselectivity in test
+            asymmetric reactions. A first step toward heterogeneous asymmetric catalysis on zeolites.
+          </p>
+          <div class="stats">
+            <div><span class="num">87</span><span class="lab">Citations</span></div>
+            <div><span class="num">JACS</span><span class="lab">Spotlight</span></div>
+            <div><span class="num">1</span><span class="lab">Patent</span></div>
+            <div><span class="num">EU/JP</span><span class="lab">Collab.</span></div>
+          </div>
+          <div style="margin-top: var(--s-5); display: flex; gap: 12px; flex-wrap: wrap;">
+            <a class="link" href="#">Read paper <span class="arrow">→</span></a>
+            <a class="link" href="#">PDF</a>
+            <a class="link" href="#">Supplementary</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Featured 04 -->
+      <article class="ft-paper">
+        <div class="v" data-vis="cha"></div>
+        <div class="body">
+          <div class="head">
+            <span class="tag accent">Nature Communications · 2023</span>
+            <span class="doi">DOI 10.1038/s41467-023-37882-5</span>
+          </div>
+          <h3>Confinement effects on Brønsted acid sites in narrow-pore catalysts for biomass upgrading.</h3>
+          <p class="journal">
+            <em>Simancas R., Pérez-Botella E. et al.</em> · <span class="t-italic">Nature&nbsp;Communications</span> vol.&nbsp;14, 2218.
+          </p>
+          <p class="abs">
+            A quantitative model linking pore geometry to acid-site reactivity in biomass-derived
+            oxygenate upgrading. Confinement is shown to override classical acid-strength descriptors —
+            redefining how to select catalysts for next-generation biorefineries.
+          </p>
+          <div class="stats">
+            <div><span class="num">156</span><span class="lab">Citations</span></div>
+            <div><span class="num">Top 5%</span><span class="lab">Field-weighted</span></div>
+            <div><span class="num">3</span><span class="lab">Industrial uses</span></div>
+            <div><span class="num">8</span><span class="lab">Follow-ups</span></div>
+          </div>
+          <div style="margin-top: var(--s-5); display: flex; gap: 12px; flex-wrap: wrap;">
+            <a class="link" href="#">Read paper <span class="arrow">→</span></a>
+            <a class="link" href="#">PDF</a>
+            <a class="link" href="#">Supplementary</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ========== METRICS ========== -->
+  <section style="background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: var(--s-8) 0;">
+    <div class="wrap-wide">
+      <div style="display: flex; justify-content: space-between; align-items: end; margin-bottom: var(--s-6); flex-wrap: wrap; gap: var(--s-4);">
+        <div>
+          <div class="t-eyebrow" style="margin-bottom: var(--s-3);"><span class="num">02</span>Metrics</div>
+          <h2 class="t-h2" style="margin: 0;">Indexed&nbsp;impact.</h2>
+        </div>
+        <span class="t-italic" style="font-size: 1.05rem; color: var(--mineral);">Updated quarterly · ORCID 0000-0002-XXXX-XXXX</span>
+      </div>
+      <div class="metrics-grid">
+        <div class="m"><div class="n">68</div><div class="l">Peer-reviewed papers</div><div class="s">since 2014</div></div>
+        <div class="m"><div class="n">3,400+</div><div class="l">Citations</div><div class="s">Google Scholar / Scopus</div></div>
+        <div class="m"><div class="n">28</div><div class="l">h-index</div><div class="s">trailing 5y: 22</div></div>
+        <div class="m"><div class="n">06</div><div class="l">Patents</div><div class="s">04 granted · 02 pending</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FULL LIST WITH FILTERS ========== -->
+  <section style="padding: var(--s-9) 0;">
+    <div class="wrap-wide">
+
+      <div style="display: flex; justify-content: space-between; align-items: end; margin-bottom: var(--s-5); flex-wrap: wrap; gap: var(--s-4);">
+        <div>
+          <div class="t-eyebrow" style="margin-bottom: var(--s-3);"><span class="num">03</span>Full publications</div>
+          <h2 class="t-h2" style="margin: 0;">All <em style="font-family: var(--serif); font-style: italic; color: var(--accent);">68</em> entries.</h2>
+        </div>
+        <span class="t-mono" style="color: var(--mineral); letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.78rem;">
+          <span id="visible-count">68</span> visible · sortable
+        </span>
+      </div>
+
+      <!-- Filters -->
+      <div class="filters" id="filters">
+        <div class="filter-group">
+          <span class="lab">Year</span>
+          <button class="chip on" data-filter="year" data-value="all">All</button>
+          <button class="chip" data-filter="year" data-value="2025">2025</button>
+          <button class="chip" data-filter="year" data-value="2024">2024</button>
+          <button class="chip" data-filter="year" data-value="2023">2023</button>
+          <button class="chip" data-filter="year" data-value="2022">2022</button>
+          <button class="chip" data-filter="year" data-value="older">≤2021</button>
+        </div>
+        <div class="filter-group">
+          <span class="lab">Topic</span>
+          <button class="chip on" data-filter="topic" data-value="all">All</button>
+          <button class="chip" data-filter="topic" data-value="synthesis">Synthesis</button>
+          <button class="chip" data-filter="topic" data-value="catalysis">Catalysis</button>
+          <button class="chip" data-filter="topic" data-value="co2">CO₂</button>
+          <button class="chip" data-filter="topic" data-value="environment">Environment</button>
+          <button class="chip" data-filter="topic" data-value="methane">Methane</button>
+        </div>
+        <div class="filter-group">
+          <span class="lab">Journal</span>
+          <button class="chip on" data-filter="journal" data-value="all">All</button>
+          <button class="chip" data-filter="journal" data-value="nature">Nature family</button>
+          <button class="chip" data-filter="journal" data-value="science">Science</button>
+          <button class="chip" data-filter="journal" data-value="jacs">JACS</button>
+          <button class="chip" data-filter="journal" data-value="other">Other</button>
+        </div>
+      </div>
+
+      <ol class="full-list" id="full-list">
+        <!-- Entries: data-year / data-topic / data-journal -->
+        <li data-year="2025" data-topic="co2" data-journal="nature">
+          <span class="y">2025</span>
+          <span class="j">Nature Catalysis<span class="vol">Vol. 8 · 320–331</span></span>
+          <span class="t">Hydrostatic-pressure synthesis of small-pore zeolites for selective CO<sub>2</sub> reduction.</span>
+          <span class="topic">CO₂ / Synthesis</span>
+          <a class="doi" href="#">DOI →</a>
+        </li>
+        <li data-year="2025" data-topic="synthesis" data-journal="other">
+          <span class="y">2025</span>
+          <span class="j">Chem. Mater.<span class="vol">Vol. 37 · 2014–2026</span></span>
+          <span class="t">Mineralizer-controlled crystallization of high-silica chabazite zeolites.</span>
+          <span class="topic">Synthesis</span>
+          <a class="doi" href="#">DOI →</a>
+        </li>
+        <li data-year="2025" data-topic="catalysis" data-journal="other">
+          <span class="y">2025</span>
+          <span class="j">ACS Catalysis<span class="vol">Vol. 15 · 3 421</span></span>
+          <span class="t">Operando spectroscopy reveals dual-site cooperation in zeolite-catalyzed methanol-to-olefins.</span>
+          <span class="topic">Catalysis</span>
+          <a class="doi" href="#">DOI →</a>
+        </li>
+        <li data-year="2024" data-topic="methane" data-journal="science">
+          <span class="y">2024</span>
+          <span class="j">Science<span class="vol">Vol. 384 · 1015–1020</span></span>
+          <span class="t">Directing aluminum distribution in MFI zeolites for direct methane-to-methanol conversion.</span>
+          <span class="topic">Methane / Catalysis</span>
+          <a class="doi" href="#">DOI →</a>
+        </li>
+        <li data-year="2024" data-topic="synthesis" data-journal="jacs">
+          <span class="y">2024</span>
+          <span class="j">J. Am. Chem. Soc.<span class="vol">Vol. 146 · 18 224</span></span>
+          <span class="t">A new chiral porous framework via tailored organic structure-directing agents.</span>
+          <span class="topic">Synthesis</span>
+          <a class="doi" href="#">DOI →</a>
+        </li>
+        <li data-year="2024" data-topic="catalysis" data-journal="other">
+          <span class="y">2024</span>
+          <span class="j">Angew. Chem. Int. Ed.<span class="vol">Vol. 63 · e202309</span></span>
+          <span class="t">Tuning Brønsted-acidity in beta zeolites for selective dehydration reactions.</span>
+          <span class="topic">Catalysis</span>
+          <a class="doi" href="#">DOI →</a>
+        </li>
+        <li data-year="2024" data-topic="co2" data-journal="other">
+          <span class="y">2024</span>
+          <span class="j">ChemCatChem<span class="vol">Vol. 16 · e202311</span></span>
+          <span class="t">Bifunctional zeolite catalysts for CO<sub>2</sub> hydrogenation to light olefins.</span>
+          <span class="topic">CO₂ / Catalysis</span>
+          <a class="doi" href="#">DOI →</a>
+        </li>
+        <li data-year="2023" data-topic="catalysis" data-journal="nature">
+          <span class="y">2023</span>
+          <span class="j">Nature Communications<span class="vol">Vol. 14 · 2218</span></span>
+          <span class="t">Confinement effects on Brønsted acid sites in narrow-pore catalysts for biomass upgrading.</span>
+          <span class="topic">Catalysis</span>
+          <a class="doi" href="#">DOI →</a>
+        </li>
+        <li data-year="2023" data-topic="environment" data-journal="other">
+          <span class="y">2023</span>
+          <span class="j">ACS Catalysis<span class="vol">Vol. 13 · 12 002</span></span>
+          <span class="t">Selective ammonium removal from wastewater using engineered chabazite-type zeolites.</span>
+          <span class="topic">Environment</span>
+          <a class="doi" href="#">DOI →</a>
+        </li>
+        <li data-year="2023" data-topic="synthesis" data-journal="other">
+          <span class="y">2023</span>
+          <span class="j">Inorg. Chem.<span class="vol">Vol. 62 · 8 442</span></span>
+          <span class="t">Crystallization pathways of small-pore zeolites under hydrostatic pressure.</span>
+          <span class="topic">Synthesis</span>
+          <a class="doi" href="#">DOI →</a>
+        </li>
+        <li data-year="2023" data-topic="methane" data-journal="jacs">
+          <span class="y">2023</span>
+          <span class="j">J. Am. Chem. Soc.<span class="vol">Vol. 145 · 7 612</span></span>
+          <span class="t">Cu-exchanged zeolites for selective oxidation of methane: defect-stabilized active species.</span>
+          <span class="topic">Methane</span>
+          <a class="doi" href="#">DOI →</a>
+        </li>
+        <li data-year="2022" data-topic="synthesis" data-journal="nature">
+          <span class="y">2022</span>
+          <span class="j">Nature Materials<span class="vol">Vol. 21 · 1 188</span></span>
+          <span class="t">Open-framework structures from interrupted zeolite syntheses.</span>
+          <span class="topic">Synthesis</span>
+          <a class="doi" href="#">DOI →</a>
+        </li>
+        <li data-year="2022" data-topic="catalysis" data-journal="other">
+          <span class="y">2022</span>
+          <span class="j">J. Catal.<span class="vol">Vol. 410 · 322</span></span>
+          <span class="t">Beyond Brønsted: pair-site cooperativity in zeolite catalysts.</span>
+          <span class="topic">Catalysis</span>
+          <a class="doi" href="#">DOI →</a>
+        </li>
+        <li data-year="2022" data-topic="co2" data-journal="other">
+          <span class="y">2022</span>
+          <span class="j">Green Chemistry<span class="vol">Vol. 24 · 5 410</span></span>
+          <span class="t">Toward industrial CO<sub>2</sub> conversion: catalyst-engineering perspective.</span>
+          <span class="topic">CO₂</span>
+          <a class="doi" href="#">DOI →</a>
+        </li>
+        <li data-year="older" data-topic="synthesis" data-journal="other">
+          <span class="y">2021</span>
+          <span class="j">Microporous Mater.<span class="vol">Vol. 326 · 111 248</span></span>
+          <span class="t">Phase-selective zeolite crystallization in the presence of mixed-cation systems.</span>
+          <span class="topic">Synthesis</span>
+          <a class="doi" href="#">DOI →</a>
+        </li>
+        <li data-year="older" data-topic="catalysis" data-journal="other">
+          <span class="y">2020</span>
+          <span class="j">Catal. Today<span class="vol">Vol. 345 · 102</span></span>
+          <span class="t">Industrial zeolite catalysts: a perspective on stability under steam.</span>
+          <span class="topic">Catalysis</span>
+          <a class="doi" href="#">DOI →</a>
+        </li>
+        <li data-year="older" data-topic="synthesis" data-journal="nature">
+          <span class="y">2019</span>
+          <span class="j">Nature Communications<span class="vol">Vol. 10 · 3 110</span></span>
+          <span class="t">Templating a previously unknown zeolite topology with a designed OSDA.</span>
+          <span class="topic">Synthesis</span>
+          <a class="doi" href="#">DOI →</a>
+        </li>
+        <li data-year="older" data-topic="environment" data-journal="other">
+          <span class="y">2018</span>
+          <span class="j">Chem. Eng. J.<span class="vol">Vol. 348 · 612</span></span>
+          <span class="t">Zeolite adsorbents for SO<sub>x</sub> emission control: structure–performance map.</span>
+          <span class="topic">Environment</span>
+          <a class="doi" href="#">DOI →</a>
+        </li>
+      </ol>
+
+      <p class="t-italic t-muted" style="margin-top: var(--s-6); font-size: 1rem;">
+        Showing a selection of 18 of 68 entries · the full bibliography is available on
+        <a class="link" href="#">ORCID</a> and <a class="link" href="#">Google Scholar</a>.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap-wide">
+    <div class="grid">
+      <div>
+        <div class="signature">Raquel Simancas<br/><em style="color: var(--accent);">Zeolite&nbsp;Science</em></div>
+        <p class="t-small" style="max-width: 32ch;">Assistant Professor at The University of Tokyo. Advancing zeolite science for sustainable industrial transformation.</p>
+      </div>
+      <div><h6>Navigation</h6><ul>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="talks.html">Talks</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div><h6>Profiles</h6><ul>
+        <li><a href="#">ORCID 0000-0002-XXXX-XXXX</a></li>
+        <li><a href="#">Google Scholar</a></li>
+        <li><a href="#">ResearcherID</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul></div>
+      <div><h6>Affiliation</h6><ul>
+        <li>The University of Tokyo</li>
+        <li>Department of Chemical&nbsp;System Engineering</li>
+        <li>7-3-1 Hongo, Bunkyo-ku</li>
+        <li>Tokyo 113-8656, Japan</li>
+      </ul></div>
+    </div>
+    <div class="colophon"><span>© 2026 Raquel Simancas · All rights reserved</span><span>東京 → Worldwide</span></div>
+  </div>
+</footer>
+
+<script src="image-slot.js"></script>
+<script src="vis.js"></script>
+<script src="tweaks.js"></script>
+<script>
+  // Filter behavior
+  (function () {
+    const filters = { year: 'all', topic: 'all', journal: 'all' };
+    const list = document.getElementById('full-list');
+    const items = list.querySelectorAll('li');
+    const count = document.getElementById('visible-count');
+
+    document.getElementById('filters').addEventListener('click', e => {
+      const btn = e.target.closest('.chip');
+      if (!btn) return;
+      const f = btn.dataset.filter, v = btn.dataset.value;
+      filters[f] = v;
+      document.querySelectorAll(`.chip[data-filter="${f}"]`).forEach(b => {
+        b.classList.toggle('on', b.dataset.value === v);
+      });
+      apply();
+    });
+    function apply() {
+      let visible = 0;
+      items.forEach(li => {
+        const ok =
+          (filters.year === 'all' || li.dataset.year === filters.year) &&
+          (filters.topic === 'all' || li.dataset.topic === filters.topic) &&
+          (filters.journal === 'all' || li.dataset.journal === filters.journal);
+        li.classList.toggle('hidden', !ok);
+        if (ok) visible++;
+      });
+      count.textContent = visible;
+    }
+  })();
+</script>
+</body>
+</html>

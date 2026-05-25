@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Talks — Raquel Simancas</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .year-band { position: sticky; top: 72px; z-index: 5; background: var(--paper); padding: var(--s-5) 0 var(--s-4); border-bottom: 1px solid var(--line); }
+  .year-band .y { font-family: var(--serif); font-size: 5rem; line-height: 1; color: var(--ink); display:flex; align-items: baseline; gap: var(--s-5); }
+  .year-band .y .lab { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mineral); }
+  .year-band .y .acc { color: var(--accent); }
+
+  .talk { display: grid; grid-template-columns: 92px 100px 1fr 1.6fr 130px 90px; gap: var(--s-5); padding: var(--s-6) 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+  .talk .dt { font-family: var(--mono); font-size: 0.85rem; color: var(--accent); letter-spacing: 0.04em; }
+  .talk .kind { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mineral); }
+  .talk .kind.key { color: var(--accent); }
+  .talk .where { font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--ink); }
+  .talk .where .city { display: block; font-family: var(--mono); font-size: 0.72rem; color: var(--mineral); font-style: normal; letter-spacing: 0.06em; margin-top: 4px; text-transform: uppercase; }
+  .talk .title { font-family: var(--serif); font-size: 1.1rem; line-height: 1.35; color: var(--ink-2); max-width: 60ch; }
+  .talk .institute { font-family: var(--sans); font-size: 0.85rem; color: var(--mineral); }
+  .talk .more { justify-self: end; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--mineral); text-transform: uppercase; }
+  .talk .more:hover { color: var(--accent); }
+
+  @media (max-width: 960px) {
+    .talk { grid-template-columns: 80px 1fr; row-gap: 4px; }
+    .talk .kind, .talk .where, .talk .title, .talk .institute, .talk .more { grid-column: 2; }
+  }
+
+  /* Honor list */
+  .honors { list-style: none; padding: 0; margin: 0; }
+  .honors li { display: grid; grid-template-columns: 90px 1fr 1.5fr; gap: var(--s-5); padding: var(--s-5) 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+  .honors .y { font-family: var(--mono); color: var(--accent); font-size: 0.85rem; }
+  .honors .name { font-family: var(--serif); font-size: 1.25rem; color: var(--ink); }
+  .honors .by { font-family: var(--sans); font-size: 0.95rem; color: var(--mineral); line-height: 1.45; }
+</style>
+</head>
+<body data-screen-label="04 Talks">
+
+<header class="site-header">
+  <div class="inner">
+    <a href="index.html" class="wordmark"><span class="name">Raquel</span><span class="dot"></span><span class="surname">Simancas</span></a>
+    <nav class="nav">
+      <a href="research.html">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="talks.html" class="active">Talks</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-meta">東京大学 · The University of Tokyo</div>
+  </div>
+</header>
+
+<main class="page">
+
+  <section class="page-head">
+    <div class="wrap-wide">
+      <div class="breadcrumb"><a href="index.html">Index</a><span class="sep">›</span><span>Talks</span></div>
+      <h1>Talks &amp; <em style="font-family: var(--serif); font-style: italic; color: var(--accent);">honors</em>.</h1>
+      <p class="t-lead lede">
+        A chronicle of invited lectures, keynotes and recognition — from Tokyo and Valencia to
+        Berkeley, Oxford, Riyadh and Shanghai.
+      </p>
+      <div class="meta-row">
+        <div class="meta-block"><div class="t-eyebrow">Invited talks</div><div class="t-italic" style="font-size: 1.05rem;">42 · since 2018</div></div>
+        <div class="meta-block"><div class="t-eyebrow">Keynotes</div><div class="t-italic" style="font-size: 1.05rem;">07 international</div></div>
+        <div class="meta-block"><div class="t-eyebrow">Countries</div><div class="t-italic" style="font-size: 1.05rem;">14 · 4 continents</div></div>
+        <div class="meta-block"><div class="t-eyebrow">Awards</div><div class="t-italic" style="font-size: 1.05rem;">11 since 2017</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map snapshot -->
+  <section style="padding: var(--s-9) 0; border-bottom: 1px solid var(--line);">
+    <div class="wrap-wide">
+      <div style="display:grid; grid-template-columns: 0.9fr 1.4fr; gap: var(--s-9); align-items: end; margin-bottom: var(--s-7);">
+        <div>
+          <div class="t-eyebrow" style="margin-bottom: var(--s-3);"><span class="num">01</span>Talks at a glance</div>
+          <h2 class="t-h1" style="margin: 0; max-width: 14ch;">42 invited talks, <em style="color: var(--accent); font-style: italic;">14 countries</em>.</h2>
+        </div>
+        <p class="t-lead" style="margin: 0; max-width: 56ch;">
+          Keynote slots at FEZA, ICC and CHAINS; invited lectures across Europe, North America,
+          the Middle East and East Asia. Selected highlights are catalogued below.
+        </p>
+      </div>
+
+      <div style="background: var(--paper-2); border: 1px solid var(--line); padding: var(--s-7);">
+        <div data-vis="globe"
+             data-points='[
+               {"label":"VALENCIA","coords":[0.49,0.34]},
+               {"label":"MADRID","coords":[0.475,0.36]},
+               {"label":"BARCELONA","coords":[0.49,0.33]},
+               {"label":"OXFORD","coords":[0.49,0.28]},
+               {"label":"DELFT","coords":[0.505,0.27]},
+               {"label":"STOCKHOLM","coords":[0.525,0.22]},
+               {"label":"DHAHRAN","coords":[0.60,0.42]},
+               {"label":"BERKELEY","coords":[0.165,0.40]},
+               {"label":"BOSTON","coords":[0.24,0.34]},
+               {"label":"SHANGHAI","coords":[0.79,0.36]},
+               {"label":"OSAKA","coords":[0.83,0.38]}
+             ]'
+             style="width: 100%; height: auto; color: var(--accent); display: block;"></div>
+        <div style="display:flex; justify-content: space-between; margin-top: var(--s-5); padding-top: var(--s-4); border-top: 1px solid var(--line); flex-wrap: wrap; gap: var(--s-5);">
+          <span class="t-mono" style="color: var(--mineral); text-transform: uppercase; letter-spacing: 0.06em;">Fig.&nbsp;02 · Speaking footprint · 2018 — 2025</span>
+          <span class="t-mono" style="color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em;">42 talks · 11 institutions</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CHRONOLOGY ========== -->
+  <section style="padding: var(--s-9) 0;">
+    <div class="wrap-wide">
+
+      <div style="margin-bottom: var(--s-7);">
+        <div class="t-eyebrow" style="margin-bottom: var(--s-3);"><span class="num">02</span>Chronology</div>
+        <h2 class="t-h1" style="margin: 0;">Recent lectures &amp; keynotes.</h2>
+      </div>
+
+      <!-- 2025 -->
+      <div class="year-band"><div class="y"><span class="acc">2025</span><span class="lab">Year · 12 engagements</span></div></div>
+      <div>
+        <div class="talk">
+          <span class="dt">SEP · 17</span>
+          <span class="kind key">Keynote</span>
+          <span class="where">FEZA Conference<span class="city">Praha · CZ</span></span>
+          <span class="title">Hydrostatic-pressure synthesis: a new frontier for zeolite topologies.</span>
+          <span class="institute">Federation of European Zeolite Associations</span>
+          <a class="more" href="#">Open →</a>
+        </div>
+        <div class="talk">
+          <span class="dt">JUL · 03</span>
+          <span class="kind">Invited</span>
+          <span class="where">Gordon Research Conference<span class="city">Newport · US</span></span>
+          <span class="title">Confinement-controlled catalysis on engineered zeolite frameworks.</span>
+          <span class="institute">Catalysis GRC</span>
+          <a class="more" href="#">Open →</a>
+        </div>
+        <div class="talk">
+          <span class="dt">MAY · 22</span>
+          <span class="kind key">Plenary</span>
+          <span class="where">Catalysis Society of Japan<span class="city">Osaka · JP</span></span>
+          <span class="title">Toward industrial CO<sub>2</sub> conversion: zeolite catalysts in the loop.</span>
+          <span class="institute">CATSJ Spring Meeting</span>
+          <a class="more" href="#">Open →</a>
+        </div>
+        <div class="talk">
+          <span class="dt">APR · 08</span>
+          <span class="kind">Invited</span>
+          <span class="where">University of California, Berkeley<span class="city">Berkeley · US</span></span>
+          <span class="title">Designing aluminum distribution for selective methane activation.</span>
+          <span class="institute">Department of Chemical Engineering Seminar</span>
+          <a class="more" href="#">Open →</a>
+        </div>
+        <div class="talk">
+          <span class="dt">FEB · 11</span>
+          <span class="kind">Invited</span>
+          <span class="where">Saudi Aramco R&amp;D Center<span class="city">Dhahran · SA</span></span>
+          <span class="title">Zeolites for sustainable industrial chemistry: a research-to-pilot perspective.</span>
+          <span class="institute">Industrial keynote</span>
+          <a class="more" href="#">Open →</a>
+        </div>
+      </div>
+
+      <!-- 2024 -->
+      <div class="year-band"><div class="y"><span class="acc">2024</span><span class="lab">Year · 14 engagements</span></div></div>
+      <div>
+        <div class="talk">
+          <span class="dt">NOV · 19</span>
+          <span class="kind key">Keynote</span>
+          <span class="where">International Congress on Catalysis<span class="city">Lyon · FR</span></span>
+          <span class="title">Pore engineering for sustainable chemistry: zeolites as a unique platform.</span>
+          <span class="institute">ICC 18 — opening session</span>
+          <a class="more" href="#">Open →</a>
+        </div>
+        <div class="talk">
+          <span class="dt">SEP · 04</span>
+          <span class="kind">Invited</span>
+          <span class="where">University of Oxford<span class="city">Oxford · UK</span></span>
+          <span class="title">Beyond Brønsted: cooperative active sites in microporous catalysis.</span>
+          <span class="institute">Chemistry Colloquium</span>
+          <a class="more" href="#">Open →</a>
+        </div>
+        <div class="talk">
+          <span class="dt">JUN · 14</span>
+          <span class="kind">Invited</span>
+          <span class="where">BASF Research<span class="city">Ludwigshafen · DE</span></span>
+          <span class="title">Industrial-scale zeolites: from synthesis control to reactor performance.</span>
+          <span class="institute">BASF Catalysis Forum</span>
+          <a class="more" href="#">Open →</a>
+        </div>
+        <div class="talk">
+          <span class="dt">MAR · 28</span>
+          <span class="kind key">Keynote</span>
+          <span class="where">CHAINS — Chemistry Conference NL<span class="city">Veldhoven · NL</span></span>
+          <span class="title">Why zeolites still matter in the era of advanced materials.</span>
+          <span class="institute">CHAINS plenary</span>
+          <a class="more" href="#">Open →</a>
+        </div>
+        <div class="talk">
+          <span class="dt">JAN · 24</span>
+          <span class="kind">Invited</span>
+          <span class="where">ITQ — Instituto de Tecnología Química<span class="city">Valencia · ES</span></span>
+          <span class="title">A decade later — chiral zeolites: from a designed OSDA to enantioselective catalysis.</span>
+          <span class="institute">ITQ Special Seminar</span>
+          <a class="more" href="#">Open →</a>
+        </div>
+      </div>
+
+      <!-- 2023 -->
+      <div class="year-band"><div class="y"><span class="acc">2023</span><span class="lab">Year · 10 engagements</span></div></div>
+      <div>
+        <div class="talk">
+          <span class="dt">OCT · 11</span>
+          <span class="kind key">Keynote</span>
+          <span class="where">Asian Zeolite Workshop<span class="city">Shanghai · CN</span></span>
+          <span class="title">Methane upgrading on engineered zeolites: state of the art and outlook.</span>
+          <span class="institute">AZW 12 plenary</span>
+          <a class="more" href="#">Open →</a>
+        </div>
+        <div class="talk">
+          <span class="dt">JUL · 06</span>
+          <span class="kind">Invited</span>
+          <span class="where">TU Delft<span class="city">Delft · NL</span></span>
+          <span class="title">Confinement chemistry: redefining acid-strength descriptors.</span>
+          <span class="institute">Process &amp; Energy Symposium</span>
+          <a class="more" href="#">Open →</a>
+        </div>
+        <div class="talk">
+          <span class="dt">MAY · 16</span>
+          <span class="kind">Invited</span>
+          <span class="where">MIT — Massachusetts Inst. of Technology<span class="city">Cambridge · US</span></span>
+          <span class="title">Asymmetric heterogeneous catalysis on chiral porous materials.</span>
+          <span class="institute">ChemE Seminar Series</span>
+          <a class="more" href="#">Open →</a>
+        </div>
+        <div class="talk">
+          <span class="dt">APR · 19</span>
+          <span class="kind">Invited</span>
+          <span class="where">Stockholm University<span class="city">Stockholm · SE</span></span>
+          <span class="title">From the lab bench to the reactor: scaling zeolite catalysts.</span>
+          <span class="institute">MMK Seminar</span>
+          <a class="more" href="#">Open →</a>
+        </div>
+      </div>
+
+      <!-- Earlier -->
+      <div class="year-band"><div class="y"><span class="acc">2018 — 2022</span><span class="lab">Earlier · 06 highlights</span></div></div>
+      <div>
+        <div class="talk">
+          <span class="dt">2022 · DEC</span>
+          <span class="kind">Invited</span>
+          <span class="where">Tsinghua University<span class="city">Beijing · CN</span></span>
+          <span class="title">Open-framework structures from interrupted syntheses.</span>
+          <span class="institute">Departmental Lecture</span>
+          <a class="more" href="#">Open →</a>
+        </div>
+        <div class="talk">
+          <span class="dt">2021 · JUN</span>
+          <span class="kind">Invited</span>
+          <span class="where">Universidad Complutense<span class="city">Madrid · ES</span></span>
+          <span class="title">Materials at the molecular scale: from synthesis to industrial relevance.</span>
+          <span class="institute">CSIC Lecture Series</span>
+          <a class="more" href="#">Open →</a>
+        </div>
+        <div class="talk">
+          <span class="dt">2019 · NOV</span>
+          <span class="kind">Invited</span>
+          <span class="where">Tokyo Institute of Technology<span class="city">Tokyo · JP</span></span>
+          <span class="title">Templating new zeolite topologies with designed OSDAs.</span>
+          <span class="institute">Research Symposium</span>
+          <a class="more" href="#">Open →</a>
+        </div>
+        <div class="talk">
+          <span class="dt">2018 · OCT</span>
+          <span class="kind">Invited</span>
+          <span class="where">University of Cambridge<span class="city">Cambridge · UK</span></span>
+          <span class="title">From bench to industry: practical zeolites for petrochemistry.</span>
+          <span class="institute">Catalysis Colloquium</span>
+          <a class="more" href="#">Open →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== HONORS ========== -->
+  <section style="background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: var(--s-9) 0;">
+    <div class="wrap-wide">
+      <div style="margin-bottom: var(--s-7); display: flex; justify-content: space-between; align-items: end; gap: var(--s-5); flex-wrap: wrap;">
+        <div>
+          <div class="t-eyebrow" style="margin-bottom: var(--s-3);"><span class="num">03</span>Honors</div>
+          <h2 class="t-h1" style="margin: 0;">Awards &amp; recognition.</h2>
+        </div>
+        <span class="t-italic" style="font-size: 1.05rem; color: var(--mineral);">11 selected · since 2017</span>
+      </div>
+
+      <ul class="honors">
+        <li><span class="y">2025</span><span class="name">FEZA Young Investigator Award</span><span class="by">Federation of European Zeolite Associations — for outstanding contribution to zeolite science under 40.</span></li>
+        <li><span class="y">2024</span><span class="name">Premio Nacional de Investigación, Spain</span><span class="by">Awarded to Spanish researchers under 40 for excellence in chemistry.</span></li>
+        <li><span class="y">2024</span><span class="name">La Vanguardia de la Ciencia</span><span class="by">Recognition by the Spanish-language scientific press for the methane-to-methanol Science article.</span></li>
+        <li><span class="y">2023</span><span class="name">JSPS Postdoctoral Fellowship</span><span class="by">Japan Society for the Promotion of Science — international fellowship.</span></li>
+        <li><span class="y">2023</span><span class="name">Editorial Board · Microporous &amp; Mesoporous Materials</span><span class="by">Elsevier journal · zeolites &amp; porous materials.</span></li>
+        <li><span class="y">2022</span><span class="name">Editorial Board · ChemCatChem</span><span class="by">Wiley journal · catalysis &amp; chemical processes.</span></li>
+        <li><span class="y">2022</span><span class="name">MEXT Research Grant</span><span class="by">Ministry of Education, Culture, Sports, Science &amp; Technology (Japan).</span></li>
+        <li><span class="y">2021</span><span class="name">Marie Skłodowska-Curie Fellowship</span><span class="by">European Commission · Individual Global Fellowship.</span></li>
+        <li><span class="y">2019</span><span class="name">RSEQ Young Researcher Award</span><span class="by">Real Sociedad Española de Química — junior recognition.</span></li>
+        <li><span class="y">2018</span><span class="name">Best PhD Thesis · UPV</span><span class="by">Universitat Politècnica de València — institutional thesis prize.</span></li>
+        <li><span class="y">2017</span><span class="name">IZA Travel Award</span><span class="by">International Zeolite Association — early-career travel grant.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section style="padding: var(--s-10) 0;">
+    <div class="wrap-wide">
+      <div style="display:grid; grid-template-columns: 1.4fr 1fr; gap: var(--s-7); align-items: center;">
+        <h2 class="t-display" style="font-size: clamp(2.25rem, 4.5vw, 4.25rem); margin: 0; max-width: 18ch;">
+          Invite Raquel for a <em style="font-style: italic; color: var(--accent);">keynote</em>, seminar or industrial briefing.
+        </h2>
+        <a class="btn" style="justify-self: end;" href="contact.html">Speaking enquiries <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap-wide">
+    <div class="grid">
+      <div>
+        <div class="signature">Raquel Simancas<br/><em style="color: var(--accent);">Zeolite&nbsp;Science</em></div>
+        <p class="t-small" style="max-width: 32ch;">Assistant Professor at The University of Tokyo. Advancing zeolite science for sustainable industrial transformation.</p>
+      </div>
+      <div><h6>Navigation</h6><ul>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="talks.html">Talks</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div><h6>Profiles</h6><ul>
+        <li><a href="#">ORCID 0000-0002-XXXX-XXXX</a></li>
+        <li><a href="#">Google Scholar</a></li>
+        <li><a href="#">ResearcherID</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul></div>
+      <div><h6>Affiliation</h6><ul>
+        <li>The University of Tokyo</li>
+        <li>Department of Chemical&nbsp;System Engineering</li>
+        <li>7-3-1 Hongo, Bunkyo-ku</li>
+        <li>Tokyo 113-8656, Japan</li>
+      </ul></div>
+    </div>
+    <div class="colophon"><span>© 2026 Raquel Simancas · All rights reserved</span><span>東京 → Worldwide</span></div>
+  </div>
+</footer>
+
+<script src="image-slot.js"></script>
+<script src="vis.js"></script>
+<script src="tweaks.js"></script>
+</body>
+</html>

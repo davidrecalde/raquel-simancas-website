@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — Raquel Simancas</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .bio-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: var(--s-9); align-items: start; }
+  .bio-grid .portrait-col { position: sticky; top: 96px; }
+  .bio-grid .portrait-col image-slot { width: 100%; height: auto; aspect-ratio: 4/5; display: block; }
+  .bio-grid .body p { font-family: var(--serif); font-size: 1.2rem; line-height: 1.65; color: var(--ink-2); margin: 0 0 var(--s-5); max-width: 56ch; }
+  .bio-grid .body p:first-of-type { font-size: 1.4rem; line-height: 1.5; color: var(--ink); }
+  .bio-grid .body em { color: var(--accent); font-style: italic; }
+  @media (max-width: 880px) { .bio-grid { grid-template-columns: 1fr; } .bio-grid .portrait-col { position: static; } }
+
+  /* Timeline */
+  .tline { display: grid; grid-template-columns: 0.7fr 1fr 1.5fr; gap: var(--s-6); border-top: 1px solid var(--line); padding-top: var(--s-7); }
+  .tline .row { display: contents; }
+  .tline .yr { font-family: var(--serif); font-size: 2.5rem; color: var(--accent); line-height: 1; padding: var(--s-5) 0; border-bottom: 1px solid var(--line); }
+  .tline .lab { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mineral); padding: var(--s-6) 0; border-bottom: 1px solid var(--line); }
+  .tline .lab .lc { display:block; font-family: var(--serif); font-style: italic; color: var(--ink); font-size: 1.05rem; text-transform: none; letter-spacing: 0; margin-top: 4px; }
+  .tline .desc { font-family: var(--sans); font-size: 1rem; color: var(--ink-2); line-height: 1.55; padding: var(--s-6) 0; border-bottom: 1px solid var(--line); max-width: 56ch; }
+
+  /* Leadership cards */
+  .lead-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-6); }
+  .lead-card { padding: var(--s-6); border: 1px solid var(--line); display: flex; flex-direction: column; gap: var(--s-3); min-height: 280px; transition: border-color var(--t-fast) var(--ease), background var(--t-fast) var(--ease); }
+  .lead-card:hover { border-color: var(--accent); background: var(--accent-tint); }
+  .lead-card .role { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+  .lead-card .name { font-family: var(--serif); font-size: 1.6rem; line-height: 1.2; color: var(--ink); }
+  .lead-card .desc { font-family: var(--sans); font-size: 0.95rem; color: var(--mineral); line-height: 1.55; margin-top: auto; }
+  @media (max-width: 880px) { .lead-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-screen-label="05 About">
+
+<header class="site-header">
+  <div class="inner">
+    <a href="index.html" class="wordmark"><span class="name">Raquel</span><span class="dot"></span><span class="surname">Simancas</span></a>
+    <nav class="nav">
+      <a href="research.html">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="talks.html">Talks</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-meta">東京大学 · The University of Tokyo</div>
+  </div>
+</header>
+
+<main class="page">
+
+  <section class="page-head">
+    <div class="wrap-wide">
+      <div class="breadcrumb"><a href="index.html">Index</a><span class="sep">›</span><span>About</span></div>
+      <h1>About <em style="font-family: var(--serif); font-style: italic; color: var(--accent);">Raquel</em>.</h1>
+      <p class="t-lead lede">
+        Scientist, educator, builder of bridges between Spain and Japan — and a working
+        chemist who designs matter at the molecular scale for industries that need to change.
+      </p>
+    </div>
+  </section>
+
+  <!-- BIOGRAPHY -->
+  <section style="padding: var(--s-10) 0;">
+    <div class="wrap-wide">
+      <div class="bio-grid">
+        <div class="portrait-col">
+          <image-slot
+            id="portrait-about"
+            placeholder="Drop editorial portrait — wide vertical crop"
+            shape="rect"></image-slot>
+          <div style="margin-top: var(--s-4); display: flex; justify-content: space-between; font-family: var(--mono); font-size: 0.72rem; color: var(--mineral); letter-spacing: 0.08em; text-transform: uppercase;">
+            <span>Pl.&nbsp;02 · Portrait</span><span class="t-accent">Hongo · 2025</span>
+          </div>
+        </div>
+
+        <div class="body">
+          <div class="t-eyebrow" style="margin-bottom: var(--s-5);"><span class="num">01</span>Biography</div>
+
+          <p class="dropcap">
+            <strong style="font-family: var(--serif); font-weight: 500;">Raquel Simancas</strong> is an Assistant Professor
+            at <em>The University of Tokyo</em>, where she leads a research programme on zeolite science
+            and its industrial applications. Her work sits at the intersection of advanced materials,
+            catalysis and sustainable chemistry — and her career has traced a deliberate arc from
+            <em>Madrid</em> and <em>Valencia</em> to the heart of Asia's most active materials community.
+          </p>
+
+          <p>
+            Trained at the <em>Instituto de Tecnología Química</em> (ITQ, UPV-CSIC) under Avelino&nbsp;Corma,
+            she completed a PhD on the design of organic structure-directing agents for new zeolite
+            topologies — work that produced the first chiral zeolite framework reported in literature.
+            A Marie Skłodowska-Curie Global Fellowship took her to Tokyo, where she joined the
+            <em>Catalysis &amp; Materials Group</em> and never quite left.
+          </p>
+
+          <p>
+            Today her group works closely with <em>BASF</em>, <em>Saudi Aramco</em>, <em>Repsol</em>,
+            and academic partners at <em>Oxford</em>, <em>Berkeley</em> and <em>TU Delft</em> — translating
+            fundamental discoveries into industrial-scale catalysts for CO<sub>2</sub> valorization,
+            methane upgrading and biomass conversion. She holds editorial roles in
+            <em>Microporous &amp; Mesoporous Materials</em> and <em>ChemCatChem</em>, and serves as President of
+            the Association of Spanish Researchers in Japan.
+          </p>
+
+          <p>
+            Her work has been recognized by the <em>FEZA Young Investigator Award</em>, the
+            <em>Premio Nacional de Investigación</em>, and featured in
+            <em>La Vanguardia de la Ciencia</em> — but the projects she finds most meaningful are the
+            ones that move from a beaker on a bench to a reactor in a plant.
+          </p>
+
+          <p>
+            Outside the lab she mentors early-career scientists, advocates for international
+            mobility, and remains convinced that the next chapter of sustainable industrial
+            chemistry will be written in collaboration — across disciplines, sectors, and
+            time zones.
+          </p>
+
+          <div style="margin-top: var(--s-7); padding-top: var(--s-5); border-top: 1px solid var(--line); display:flex; gap: var(--s-5); flex-wrap: wrap;">
+            <a class="link" href="publications.html">Read selected work <span class="arrow">→</span></a>
+            <a class="link" href="contact.html">Get in touch <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TIMELINE ========== -->
+  <section style="background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: var(--s-9) 0;">
+    <div class="wrap-wide">
+      <div style="margin-bottom: var(--s-7);">
+        <div class="t-eyebrow" style="margin-bottom: var(--s-3);"><span class="num">02</span>Timeline</div>
+        <h2 class="t-h1" style="margin: 0; max-width: 16ch;">A path from <em style="color: var(--accent); font-style: italic;">Madrid → Valencia → Tokyo</em>.</h2>
+      </div>
+
+      <div class="tline">
+        <div class="row">
+          <div class="yr">2024</div>
+          <div class="lab">Position<span class="lc">Assistant Professor</span></div>
+          <div class="desc">Faculty appointment at The University of Tokyo · Department of Chemical System Engineering. Group established with industrial partners and international academic collaborations.</div>
+        </div>
+        <div class="row">
+          <div class="yr">2021</div>
+          <div class="lab">Fellowship<span class="lc">Marie S. Curie GF</span></div>
+          <div class="desc">European Commission Global Fellowship — research stay at The University of Tokyo on confinement effects in zeolite catalysis. Decisive period in shaping the research programme.</div>
+        </div>
+        <div class="row">
+          <div class="yr">2019</div>
+          <div class="lab">Postdoc<span class="lc">ITQ · UPV-CSIC</span></div>
+          <div class="desc">Senior postdoctoral position at the Instituto de Tecnología Química, Valencia. Built collaborations with BASF and Saudi Aramco on industrial-relevant zeolite catalysts.</div>
+        </div>
+        <div class="row">
+          <div class="yr">2017</div>
+          <div class="lab">PhD<span class="lc">Catalysis · UPV-CSIC</span></div>
+          <div class="desc">PhD on the synthesis of new zeolite topologies via designed organic structure-directing agents. Thesis awarded the institutional Best PhD prize. Reported the first chiral zeolite.</div>
+        </div>
+        <div class="row">
+          <div class="yr">2013</div>
+          <div class="lab">MSc<span class="lc">Sustainable Chemistry · UPV</span></div>
+          <div class="desc">Master's in Sustainable Chemistry · Universitat Politècnica de València. Joined ITQ as a graduate researcher.</div>
+        </div>
+        <div class="row">
+          <div class="yr">2011</div>
+          <div class="lab">BSc<span class="lc">Chemistry · UCM</span></div>
+          <div class="desc">Bachelor's in Chemistry · Universidad Complutense de Madrid. Final-year project in heterogeneous catalysis.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== LEADERSHIP ========== -->
+  <section style="padding: var(--s-10) 0;">
+    <div class="wrap-wide">
+      <div style="display: grid; grid-template-columns: 0.9fr 1.4fr; gap: var(--s-9); align-items: end; margin-bottom: var(--s-7);">
+        <div>
+          <div class="t-eyebrow" style="margin-bottom: var(--s-3);"><span class="num">03</span>Leadership &amp; community</div>
+          <h2 class="t-h1" style="margin: 0;">Building <em style="color: var(--accent); font-style: italic;">scientific&nbsp;bridges</em>.</h2>
+        </div>
+        <p class="t-lead" style="margin: 0; max-width: 56ch;">
+          Three roles outside the lab — editorial, community and mentorship — that
+          make the science travel further than any single project could.
+        </p>
+      </div>
+
+      <div class="lead-grid">
+        <div class="lead-card">
+          <div class="role">Role 01</div>
+          <div class="name">President — Association of Spanish Researchers in Japan</div>
+          <div class="desc">
+            Leading the network of Iberian scientists across Japanese institutions —
+            organising annual symposia, mobility support and cross-cultural collaboration.
+          </div>
+        </div>
+        <div class="lead-card">
+          <div class="role">Role 02</div>
+          <div class="name">Editorial Board — Microporous &amp; Mesoporous Materials</div>
+          <div class="desc">
+            Editor for the leading journal on zeolite science and porous materials.
+            Curating high-impact contributions and special issues since 2023.
+          </div>
+        </div>
+        <div class="lead-card">
+          <div class="role">Role 03</div>
+          <div class="name">Mentor — early-career international scientists</div>
+          <div class="desc">
+            Mentoring postdocs and PhD candidates moving between European and Japanese
+            research ecosystems. Advisor on the JSPS international fellowship programme.
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: var(--s-8); padding-top: var(--s-5); border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: var(--s-5); align-items: baseline; flex-wrap: wrap;">
+        <p class="t-italic" style="font-size: 1.25rem; color: var(--ink); max-width: 56ch; margin: 0;">
+          “Science travels best when the people doing it can travel too — across labs, sectors,
+          languages and continents.”
+        </p>
+        <span class="t-small" style="color: var(--accent);">— Raquel Simancas</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== VISION / CLOSING ========== -->
+  <section style="background: var(--ink); color: var(--paper); padding: var(--s-11) 0;">
+    <div class="wrap-wide">
+      <div style="display: grid; grid-template-columns: 0.9fr 1.4fr; gap: var(--s-9); align-items: start;">
+        <div>
+          <div class="t-eyebrow" style="color: var(--mineral-2); margin-bottom: var(--s-3);"><span class="num" style="color: var(--accent-2);">04</span>Looking forward</div>
+          <div data-vis="dotfield" style="width: 140px; aspect-ratio: 1/1; color: var(--accent-2); margin-top: var(--s-4); border: 1px solid rgba(255,255,255,0.12);"></div>
+        </div>
+        <div>
+          <p class="t-display" style="font-size: clamp(2rem, 4vw, 3.75rem); line-height: 1.05; margin: 0; max-width: 24ch; color: var(--paper);">
+            The next decade will demand chemistry that is <em style="color: var(--accent-2); font-style: italic;">selective, durable and
+            scalable</em> — and built by teams that span continents. Zeolites will be part of it.
+          </p>
+          <div style="margin-top: var(--s-7); padding-top: var(--s-5); border-top: 1px solid rgba(255,255,255,0.18); display: flex; align-items: center; gap: var(--s-4);">
+            <div style="width: 36px; height: 1px; background: var(--accent-2);"></div>
+            <span class="t-italic" style="font-size: 1.1rem; color: var(--paper);">Raquel Simancas</span>
+            <span class="t-small" style="color: var(--mineral-2);">Tokyo · 2025</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap-wide">
+    <div class="grid">
+      <div>
+        <div class="signature">Raquel Simancas<br/><em style="color: var(--accent);">Zeolite&nbsp;Science</em></div>
+        <p class="t-small" style="max-width: 32ch;">Assistant Professor at The University of Tokyo. Advancing zeolite science for sustainable industrial transformation.</p>
+      </div>
+      <div><h6>Navigation</h6><ul>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="talks.html">Talks</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div><h6>Profiles</h6><ul>
+        <li><a href="#">ORCID 0000-0002-XXXX-XXXX</a></li>
+        <li><a href="#">Google Scholar</a></li>
+        <li><a href="#">ResearcherID</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul></div>
+      <div><h6>Affiliation</h6><ul>
+        <li>The University of Tokyo</li>
+        <li>Department of Chemical&nbsp;System Engineering</li>
+        <li>7-3-1 Hongo, Bunkyo-ku</li>
+        <li>Tokyo 113-8656, Japan</li>
+      </ul></div>
+    </div>
+    <div class="colophon"><span>© 2026 Raquel Simancas · All rights reserved</span><span>東京 → Worldwide</span></div>
+  </div>
+</footer>
+
+<script src="image-slot.js"></script>
+<script src="vis.js"></script>
+<script src="tweaks.js"></script>
+</body>
+</html>
