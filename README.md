@@ -23,7 +23,7 @@ Pure static HTML — no build step required.
 
 - **Framework preset:** None
 - **Build command:** *(leave empty)*
-- **Build output directory:** `/`  (or leave at default)
+- **Build output directory:** `/`
 - **Node version:** Not needed
 
 ## Local preview
@@ -33,3 +33,5 @@ Open `index.html` directly in a browser, or use a local server:
 ```bash
 npx serve .
 ```
+
+---
