@@ -1,0 +1,6 @@
+[build]
+command = "pnpm run build"
+destination = "dist"
+
+[build.environment]
+NODE_VERSION = "20"

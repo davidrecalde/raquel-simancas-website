@@ -1,0 +1,1 @@
+{"ignoredBuilds":["esbuild","sharp","workerd"]}
