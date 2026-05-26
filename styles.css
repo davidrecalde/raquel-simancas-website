@@ -463,3 +463,189 @@ image-slot { background: var(--paper-2); height: auto; }
 }
 .runline .dot { width: 4px; height: 4px; background: var(--accent); border-radius: 999px; opacity: 0.8; }
 .runline span.lab { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+
+/* ==========================================================================
+   MOBILE RESPONSIVE — @media (max-width: 720px)
+   Overrides all inline grids and multi-column layouts for small screens.
+   ========================================================================== */
+
+@media (max-width: 720px) {
+
+  /* ── Global spacing reduction ── */
+  :root {
+    --s-9:  56px;
+    --s-10: 72px;
+    --s-11: 96px;
+    --gutter: 18px;
+  }
+
+  /* ── Nav: hide desktop nav, show mobile wordmark only ── */
+  .nav { display: none; }
+  .site-header .inner {
+    padding: 0 var(--gutter);
+    height: 56px;
+  }
+
+  /* ── Hero ── */
+  .hero-grid { grid-template-columns: 1fr !important; gap: var(--s-6) !important; }
+
+  /* Hero footnote bar: 4-col → 2-col */
+  .hero-grid + * [style*="repeat(4, 1fr)"],
+  [style*="repeat(4, 1fr)"] {
+    grid-template-columns: 1fr 1fr !important;
+    gap: var(--s-5) !important;
+  }
+
+  /* ── Research section header: 2-col → 1-col ── */
+  .research-grid [style*="grid-template-columns: 1fr 1fr"],
+  [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: var(--s-5) !important;
+  }
+
+  /* ── Research cards: 3-col → 1-col ── */
+  .grid-6,
+  [style*="repeat(3, 1fr)"] {
+    grid-template-columns: 1fr !important;
+    gap: var(--s-5) !important;
+  }
+
+  /* ── Publications rows: 4-col → 2-col stacked ── */
+  .pub-row,
+  [style*="80px 1fr 1.6fr 180px"] {
+    grid-template-columns: 60px 1fr !important;
+    gap: var(--s-3) var(--s-4) !important;
+  }
+  /* Push journal and DOI link under title */
+  .pub-row > *:nth-child(3),
+  .pub-row > *:nth-child(4) {
+    grid-column: 2 !important;
+  }
+
+  /* ── Presence / stats: 4-col → 2-col ── */
+  [style*="repeat(4, 1fr)"] {
+    grid-template-columns: 1fr 1fr !important;
+    gap: var(--s-5) !important;
+  }
+
+  /* ── Vision 2-col → 1-col ── */
+  .vision [style*="grid-template-columns: 200px 1fr"],
+  [style*="grid-template-columns: 200px 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: var(--s-5) !important;
+  }
+
+  /* ── Global 2-col asymmetric → 1-col ── */
+  [style*="grid-template-columns: 0.9fr 1.4fr"],
+  [style*="grid-template-columns: 1.4fr 1fr"],
+  [style*="grid-template-columns: 1fr 1.6fr"],
+  [style*="grid-template-columns: 1.35fr"],
+  [style*="grid-template-columns: 1.5fr 1fr"],
+  [style*="grid-template-columns: 1.4fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: var(--s-5) !important;
+  }
+
+  /* ── Footer: 4-col → 1-col ── */
+  .site-footer .grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--s-6) !important;
+  }
+  .site-footer .colophon {
+    flex-direction: column !important;
+    gap: var(--s-3) !important;
+    align-items: flex-start !important;
+  }
+
+  /* ── Research page: ra-row ── */
+  .ra-row {
+    grid-template-columns: 1fr !important;
+    gap: var(--s-6) !important;
+    padding: var(--s-7) 0 !important;
+  }
+  .ra-row .vis-col { position: static !important; }
+  .ra-row .vis-col .vis { aspect-ratio: 16/9 !important; }
+  .ra-row .pillars { grid-template-columns: 1fr !important; }
+  .meth-grid { grid-template-columns: 1fr 1fr !important; }
+  .meth-card { aspect-ratio: auto !important; min-height: 120px; }
+
+  /* ── Publications page: ft-paper, full-list ── */
+  .ft-paper {
+    grid-template-columns: 1fr !important;
+    gap: var(--s-5) !important;
+  }
+  .ft-paper .v { aspect-ratio: 16/9 !important; position: static !important; }
+  .metrics-grid { grid-template-columns: 1fr 1fr !important; }
+  .full-list > li {
+    grid-template-columns: 48px 1fr !important;
+    gap: var(--s-3) var(--s-4) !important;
+  }
+  .full-list > li > *:nth-child(3),
+  .full-list > li > *:nth-child(4),
+  .full-list > li > *:nth-child(5) { grid-column: 2 !important; }
+
+  /* ── About page ── */
+  .bio-grid { grid-template-columns: 1fr !important; gap: var(--s-6) !important; }
+  .bio-grid .portrait-col { position: static !important; }
+  .tline { grid-template-columns: 1fr !important; gap: var(--s-3) !important; }
+  .tline .yr { padding-bottom: 0 !important; border-bottom: none !important; font-size: 1.75rem; }
+  .tline .lab { padding-top: 0 !important; border-bottom: none !important; }
+  .tline .desc { padding-top: 0 !important; border-bottom: 1px solid var(--line) !important; padding-bottom: var(--s-6) !important; }
+  .lead-grid { grid-template-columns: 1fr !important; }
+  .lead-card { min-height: auto !important; aspect-ratio: auto !important; }
+
+  /* ── Contact page ── */
+  .contact-grid { grid-template-columns: 1fr !important; }
+
+  /* ── Talks page year-block ── */
+  .year-block {
+    grid-template-columns: 1fr !important;
+    gap: var(--s-3) !important;
+  }
+  .year-num { font-size: 2rem !important; padding-top: 0 !important; }
+
+  /* ── Page head meta-row: wrap ── */
+  .page-head .meta-row {
+    gap: var(--s-4) !important;
+  }
+  .page-head h1 { font-size: clamp(2rem, 10vw, 3rem) !important; }
+
+  /* ── Display text size ── */
+  .t-display { font-size: clamp(2rem, 8vw, 3.5rem) !important; }
+
+  /* ── Filters (publications): wrap ── */
+  .filters { flex-direction: column !important; gap: var(--s-4) !important; top: 56px !important; }
+
+  /* ── CTA section ── */
+  .cta [style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+  .cta [data-vis] { display: none !important; }
+
+  /* ── Presence stats ── */
+  .presence [style*="grid-template-columns: 1fr 1fr"],
+  .presence [style*="repeat(4, 1fr)"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* ── Trust bar: wrap ── */
+  [style*="display:flex"][style*="align-items:center"] {
+    flex-wrap: wrap !important;
+  }
+
+  /* ── Bio inline 2-col paragraphs (research overview) ── */
+  [style*="grid-template-columns: 1fr 1fr"][style*="gap: var(--s-6)"] {
+    grid-template-columns: 1fr !important;
+  }
+
+}
+
+/* ── Extra small: 400px and below ── */
+@media (max-width: 400px) {
+  [style*="repeat(4, 1fr)"],
+  .metrics-grid,
+  .meth-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .page-head h1 { font-size: clamp(1.75rem, 9vw, 2.5rem) !important; }
+}
